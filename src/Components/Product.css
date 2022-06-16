@@ -1,0 +1,13 @@
+.product-details {
+    margin: 20px 0px;
+}
+
+.card {
+    width: 18rem;
+}
+
+@media only screen and (max-width:576px) {
+    .card {
+        width: 100%;
+    }
+}
