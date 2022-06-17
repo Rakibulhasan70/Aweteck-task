@@ -8,11 +8,11 @@ const Product = (props) => {
 
     const navigate = useNavigate()
     const handleNavigate = () => {
-        navigate(`/details/${ccn3}`)
+        navigate(`/details/${capital}`)
     }
     return (
         <div className='container'>
-            <div className="">
+            <div >
                 <div className='product-details'>
                     <Card className='card'>
                         <Card.Img variant="top" src={flags.png} style={{ height: '200px' }} />
@@ -20,7 +20,7 @@ const Product = (props) => {
                             <h4>Name: {name.common}</h4>
                             <p>Population: {population}</p>
                             <p>Capital: {capital}</p>
-                            <button className='btn btn-primary' onClick={() => handleNavigate(ccn3)}>Details</button>
+                            <button className='btn btn-primary' onClick={() => handleNavigate(capital)}>Details</button>
                         </Card.Body>
                     </Card>
                 </div>
