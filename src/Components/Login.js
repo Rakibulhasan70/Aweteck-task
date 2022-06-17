@@ -6,10 +6,12 @@ import './Login.css'
 import auth from '../firebase.init';
 
 
+
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+
 
     const handleEmailBlur = e => {
         setEmail(e.target.value)
@@ -34,10 +36,12 @@ const Login = () => {
     if (user) {
         navigate('/home')
     }
+
+    console.log(user);
     const handleSubmitForm = e => {
         e.preventDefault();
         signInWithEmailAndPassword(email, password)
-
+        alert(`Email is ${email} and password is ${password}`)
 
     };
 

@@ -20,7 +20,7 @@ const Home = () => {
             <div className='product container'>
                 {
                     products.map(product => <Product
-                        key={product.population}
+                        key={product.cca2}
                         product={product}
                     >
 

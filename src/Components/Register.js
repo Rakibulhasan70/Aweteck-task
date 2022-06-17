@@ -8,6 +8,7 @@ import auth from '../firebase.init';
 
 const Register = () => {
     const [email, setEmail] = useState('')
+    const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [confrimPass, setconfrimPass] = useState('')
     const [customError, setCustomError] = useState('')
@@ -34,6 +35,11 @@ const Register = () => {
     const handleEmailBlur = e => {
         setEmail(e.target.value)
     }
+
+    const handleNameBlur = e => {
+        setName(e.target.value)
+    }
+
     const handlePasswordBlur = e => {
         setPassword(e.target.value)
     }
@@ -48,6 +54,7 @@ const Register = () => {
         }
         else {
             createUserWithEmailAndPassword(email, password)
+            alert(`Email is ${email} and password is ${password} and Name is ${name}`)
         }
     }
 
@@ -57,7 +64,7 @@ const Register = () => {
                 <div className="col col-lg-6 col-12 ">
                     <h2 className='mt-3 text-center' style={{ color: 'purple' }}> Register Form</h2>
                     <form onSubmit={handleSubmitForm} className='form-register'>
-                        <input className='py-3' type="text" placeholder='Name' />
+                        <input className='py-3' onBlur={handleNameBlur} name="name" type="text" placeholder='Name' />
                         <input className='py-3' onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Enter your email' required />
                         <input className='py-3' onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Password' required />
                         <input className='py-3' onBlur={handleConfirmPassBlur} type="password" name="ConfirmPassword" id="" placeholder='Confirm Password' required />
