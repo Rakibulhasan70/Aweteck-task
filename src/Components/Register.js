@@ -8,6 +8,7 @@ import auth from '../firebase.init';
 
 const Register = () => {
     const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [confrimPass, setconfrimPass] = useState('')
@@ -36,6 +37,10 @@ const Register = () => {
         setEmail(e.target.value)
     }
 
+    const handlePhoneBlur = e => {
+        setPhone(e.target.value)
+    }
+
     const handleNameBlur = e => {
         setName(e.target.value)
     }
@@ -53,8 +58,8 @@ const Register = () => {
             setCustomError('Please enter the valid password')
         }
         else {
-            createUserWithEmailAndPassword(email, password)
-            alert(`Email is ${email} and password is ${password} and Name is ${name}`)
+            createUserWithEmailAndPassword(email, password.phone)
+            alert(`Email is ${email} and password is ${password} and Name is ${name} and phone number is ${phone}`)
         }
     }
 
@@ -66,6 +71,7 @@ const Register = () => {
                     <form onSubmit={handleSubmitForm} className='form-register'>
                         <input className='py-3' onBlur={handleNameBlur} name="name" type="text" placeholder='Name' />
                         <input className='py-3' onBlur={handleEmailBlur} type="email" name="email" id="" placeholder='Enter your email' required />
+                        <input className='py-3' onBlur={handlePhoneBlur} type="number" name="phone" id="" placeholder='Enter your phone number' required />
                         <input className='py-3' onBlur={handlePasswordBlur} type="password" name="password" id="" placeholder='Password' required />
                         <input className='py-3' onBlur={handleConfirmPassBlur} type="password" name="ConfirmPassword" id="" placeholder='Confirm Password' required />
                         <p><small className='text-danger'>{customError}</small></p>
